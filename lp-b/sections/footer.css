@@ -1,0 +1,110 @@
+/* ============================================================
+   sections/footer.css
+============================================================ */
+
+.footer {
+  background-color: var(--color-bg-light);
+  color: var(--color-text);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--sp-16);
+  padding-block: var(--sp-16);
+}
+
+/* --- ブランドエリア --- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.footer__logo img {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.footer__tagline {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-loose);
+}
+
+/* --- ナビゲーション --- */
+.footer__nav {
+  display: flex;
+  gap: var(--sp-16);
+}
+
+.footer__nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.footer__nav-heading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.footer__nav-link {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  transition: opacity var(--transition);
+}
+
+@media (min-width: 768px) {
+  .footer__nav-link:hover {
+    opacity: 0.7;
+  }
+}
+
+/* --- コピーライト --- */
+.footer__copy {
+  text-align: center;
+  padding-block: var(--sp-5);
+  font-size: var(--fs-xs);
+  color: var(--color-text);
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+    padding-block: var(--sp-10);
+  }
+
+  .footer__logo img {
+    width: 200px;
+  }
+
+  .footer__tagline {
+    font-size: var(--fs-base);
+  }
+
+  .footer__nav {
+    gap: var(--sp-10);
+  }
+
+  .footer__nav-heading {
+    font-size: var(--fs-md);
+  }
+
+  .footer__nav-link {
+    font-size: var(--fs-base);
+  }
+}

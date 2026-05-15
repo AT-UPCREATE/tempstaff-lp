@@ -1,0 +1,257 @@
+/* ============================================================
+   sections/hero.css
+============================================================ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #6583AB 0.566%, var(--color-primary) 37.011%);
+  color: var(--color-text-on-dark);
+  padding-top: var(--header-h);
+  min-height: calc(var(--header-h) + 710px);
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+}
+
+/* --- 人物画像：絶対配置で底部から、端をはみ出させる --- */
+.hero__image-wrap {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero__image-wrap--left {
+  right: 50%;
+}
+
+.hero__image-wrap--right {
+  left: calc(50% + 4px);
+}
+
+.hero__image {
+  display: block;
+  width: auto;
+  height: 663px;
+  max-width: none;
+  filter: grayscale(100%);
+}
+
+/* --- テキストエリア：中央・前面 --- */
+.hero__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  align-items: center;
+  text-align: center;
+  padding-top: var(--sp-20);
+  padding-bottom: 120px;
+}
+
+.hero__caption-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.hero__caption {
+  font-size: var(--fs-lg);
+  letter-spacing: 0.04em;
+}
+
+.hero__caption-line {
+  display: block;
+  margin-top: 10px;
+  overflow: visible;
+}
+
+.hero__heading {
+  font-size: 38px;
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.1em;
+}
+
+.hero__heading strong {
+  display: block;
+  font-size: 80px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  text-shadow: 0 16px 30px #283F60;
+}
+
+/* ハイライト帯 */
+.hero__highlight {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: 2.2;
+}
+
+.hero__highlight span {
+  display: inline;
+  background-color: #CDD5DF;
+  color: var(--color-primary);
+  padding: 2px var(--sp-4);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.hero__description {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-loose);
+  letter-spacing: 0.08em;
+}
+
+/* CTAグループ */
+.hero__cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+  padding-bottom: 32px;
+}
+
+.hero__cta-primary-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding-top: 26px;
+}
+
+.hero__cta-primary-wrap .badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.hero__cta-buttons {
+  display: flex;
+  gap: var(--sp-10);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero__cta-buttons .btn {
+  width: 410px;
+  height: 64px;
+  min-height: unset;
+}
+
+/* 右ボタン：CTAセクションと同様に白塗り＋オレンジ文字 */
+.hero .btn--outline-cta {
+  background-color: var(--color-white);
+}
+
+/* ============================================================
+   SP（〜767px）
+============================================================ */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 750px;      /* fallback */
+    min-height: 100svh;
+    padding-bottom: 0;
+    align-items: stretch;   /* hero__body を縦いっぱいに伸ばす */
+  }
+
+  /* --- 人物画像: SP表示・サイズ調整 --- */
+  .hero__image-wrap {
+    display: block;
+  }
+
+  .hero__image-wrap--left {
+    right: auto;
+    left: -60px;
+  }
+
+  .hero__image-wrap--right {
+    left: auto;
+    right: -56px;
+    bottom: 30px;
+  }
+
+  .hero__image--man {
+    height: 295px;
+    width: 295px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .hero__image--woman {
+    height: 263px;
+    width: 226px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  /* 画像フェードアウト用グラデーションオーバーレイ */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 142px;
+    background: linear-gradient(to bottom, rgba(11, 31, 58, 0), var(--color-primary));
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero__body {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    gap: var(--sp-4);
+  }
+
+  .hero__caption {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .hero__heading {
+    font-size: var(--fs-lg);
+  }
+
+  .hero__description {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero__heading strong {
+    font-size: var(--fs-4xl);
+  }
+
+  .hero__highlight {
+    font-size: var(--fs-md);
+  }
+
+  .hero__cta-group {
+    align-items: stretch;
+    width: 100%;
+    margin-top: auto;    /* CTAをFV下部に押し下げ */
+    padding-bottom: 32px;
+  }
+
+  .hero__cta-primary-wrap {
+    display: flex;
+    width: 100%;
+  }
+
+  .hero__cta-buttons {
+    flex-direction: column;
+    gap: var(--sp-3);
+    width: 100%;
+  }
+
+  .hero__cta-buttons .btn {
+    width: 100%;
+    height: 48px;
+  }
+}

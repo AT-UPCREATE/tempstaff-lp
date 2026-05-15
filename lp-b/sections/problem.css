@@ -1,0 +1,117 @@
+/* ============================================================
+   sections/problem.css
+============================================================ */
+
+.problem {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  position: relative;
+}
+
+.problem__body {
+  padding-block: var(--section-py);
+  padding-top: 18px;
+  padding-bottom: 80px;
+}
+
+/* セクションタイトル色オーバーライド */
+.problem .section-title {
+  color: var(--color-text-on-dark);
+}
+
+/* --- 3カラムグリッド --- */
+.problem__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-bottom: var(--sp-16);
+}
+
+.problem__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.problem__card-img {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-5);
+  background-color: var(--color-bg-dark);
+}
+
+.problem__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.problem__card-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--sp-3);
+  text-align: center;
+}
+
+.problem__card-text {
+  font-size: var(--fs-base);
+  color: var(--color-text-on-dark);
+  line-height: 1.8;
+}
+
+/* --- ボトムステートメント --- */
+.problem__statement {
+  text-align: center;
+  padding-top: var(--sp-10);
+}
+
+.problem__statement-title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--sp-4);
+  letter-spacing: var(--ls-wide);
+}
+
+.problem__statement-title strong {
+  color: var(--color-white);
+}
+
+.problem__statement-sub {
+  font-size: var(--fs-lg);
+  color: var(--color-text-on-dark);
+  line-height: var(--lh-loose);
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .problem__grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .problem__card-img {
+    height: 240px;
+  }
+
+  .problem__card-title {
+    text-align: center;
+    font-size: var(--fs-lg);
+  }
+
+  .problem__card-text {
+    font-size: var(--fs-base);
+    text-align: justify;
+  }
+
+  .problem__statement-title {
+    font-size: var(--fs-lg);
+  }
+
+  .problem__statement-sub {
+    font-size: var(--fs-base);
+  }
+}

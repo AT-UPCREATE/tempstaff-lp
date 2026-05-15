@@ -1,0 +1,91 @@
+/* ============================================================
+   sections/strengths.css
+   Reason — なぜ優秀な人材と巡り合えるのか
+============================================================ */
+
+/* --- 2カラム: 画像左 + テキスト右 --- */
+.reason__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--sp-16);
+  margin-top: var(--sp-12);
+  margin-bottom: var(--sp-12);
+}
+
+.reason__image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+}
+
+.reason__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.reason__sub-title {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: var(--color-primary);
+  margin-bottom: var(--sp-5);
+}
+
+.reason__text {
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--sp-5);
+}
+
+.reason__text:last-child {
+  margin-bottom: 0;
+}
+
+.reason__mark {
+  background-color: var(--color-highlight);
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: var(--fw-bold);
+}
+
+/* --- ボトムステートメント --- */
+.reason__statement {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1.8;
+  letter-spacing: var(--ls-wide);
+  padding-top: var(--sp-10);
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .reason__layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+    margin-bottom: 0;
+  }
+
+  .reason__sub-title {
+    font-size: var(--fs-lg);
+  }
+
+  .reason__text {
+    font-size: var(--fs-base);
+  }
+
+  .reason__statement {
+    font-size: var(--fs-xl);
+    padding-top: 24px;
+  }
+}

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow" />
+  <script src="./auth.js"></script>
+  <title>FlexibleCAREER｜管理部門に、事業成長と同じスピード感を。</title>
+  <meta name="description" content="成長フェーズのスタートアップ・ベンチャー向けに、フレキシブルキャリア人材の活用で管理部門の課題を解決。無料診断で現状を可視化します。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@1,800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Base -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Components -->
+  <link rel="stylesheet" href="components/button.css">
+  <link rel="stylesheet" href="components/badge.css">
+
+  <!-- Sections -->
+  <link rel="stylesheet" href="sections/header.css">
+  <link rel="stylesheet" href="sections/hero.css">
+  <link rel="stylesheet" href="sections/problem.css">
+  <link rel="stylesheet" href="sections/solution.css">
+  <link rel="stylesheet" href="sections/features.css">
+  <link rel="stylesheet" href="sections/strengths.css">
+  <link rel="stylesheet" href="sections/results.css">
+  <link rel="stylesheet" href="sections/voice.css">
+  <link rel="stylesheet" href="sections/contact.css">
+  <link rel="stylesheet" href="sections/footer.css">
+  <link rel="stylesheet" href="sections/floating-cta.css">
+  <link rel="stylesheet" href="sections/separators.css">
+</head>
+
+<body>
+
+  <!-- ========================================================
+       Header
+  ======================================================== -->
+  <header class="header">
+    <div class="header__inner container">
+
+      <a href="/" class="header__logo" aria-label="FlexibleCAREER トップへ">
+        <img src="assets/images/透明_ロゴ.png" alt="FlexibleCAREER" class="header__logo-img" width="180" height="36">
+      </a>
+
+      <nav class="header__nav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li><a href="#problem" class="header__nav-link">課題</a></li>
+          <li><a href="#solution" class="header__nav-link">解決策</a></li>
+          <li><a href="#strengths" class="header__nav-link">強み</a></li>
+          <li><a href="#voice" class="header__nav-link">導入事例</a></li>
+        </ul>
+        <div class="header__cta-group">
+          <a href="#contact" class="btn btn--primary">無料相談</a>
+          <a href="#contact" class="btn btn--outline-cta">人材リスト</a>
+        </div>
+      </nav>
+
+      <button class="header__hamburger" data-action="toggle-drawer" aria-label="メニューを開く" aria-expanded="false"
+        aria-controls="js-drawer">
+        <span class="header__hamburger-bar"></span>
+        <span class="header__hamburger-bar"></span>
+        <span class="header__hamburger-bar"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Drawer（SP）-->
+  <div class="drawer-overlay" id="js-drawer-overlay" aria-hidden="true"></div>
+  <nav class="drawer" id="js-drawer" aria-label="スマホメニュー" aria-hidden="true">
+
+    <!-- 閉じるボタン -->
+    <button class="drawer__close" data-action="close-drawer" aria-label="メニューを閉じる">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <!-- ナビゲーション -->
+    <ul class="drawer__nav-list">
+      <li>
+        <a href="#problem" class="drawer__nav-link">
+          <img src="assets/images/slash.svg" alt="" aria-hidden="true" class="drawer__nav-slash" width="14" height="21">
+          課題
+        </a>
+      </li>
+      <li>
+        <a href="#solution" class="drawer__nav-link">
+          <img src="assets/images/slash.svg" alt="" aria-hidden="true" class="drawer__nav-slash" width="14" height="21">
+          解決策
+        </a>
+      </li>
+      <li>
+        <a href="#strengths" class="drawer__nav-link">
+          <img src="assets/images/slash.svg" alt="" aria-hidden="true" class="drawer__nav-slash" width="14" height="21">
+          強み
+        </a>
+      </li>
+      <li>
+        <a href="#voice" class="drawer__nav-link">
+          <img src="assets/images/slash.svg" alt="" aria-hidden="true" class="drawer__nav-slash" width="14" height="21">
+          導入事例
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="drawer__cta">
+      <div class="drawer__cta-primary-wrap">
+        <span class="badge badge--free">完全無料</span>
+        <a href="#contact" class="btn btn--primary">
+          <svg width="20" height="20" viewBox="0 0 26 26" fill="none" aria-hidden="true" style="transform: scaleX(-1)">
+            <path
+            d="M13 0.188C5.924 0.188 0.187 5.252 0.187 11.5C0.187 14.677 1.675 17.539 4.063 19.594C3.542 22.603 0.176 23.828 0.406 24.656C3.416 25.901 9.377 23.011 10.281 22.563C11.155 22.729 12.07 22.813 13 22.813C20.076 22.813 25.813 17.748 25.813 11.5C25.813 5.252 20.075 0.188 13 0.188Z"
+            fill="currentColor" />
+          </svg>
+          まずは相談する
+          <svg class="btn__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <a href="#contact" class="btn btn--outline-cta">
+        <img src="assets/images/dl-icon.png" width="20" height="20" alt="" aria-hidden="true">
+        ハイスキル人材リストを受け取る
+        <svg class="btn__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+  </nav>
+
+  <main>
+
+    <!-- ========================================================
+         Hero / FV
+    ======================================================== -->
+    <section class="hero" id="hero" aria-label="メインビジュアル">
+
+      <!-- 左：人物画像（絶対配置） -->
+      <div class="hero__image-wrap hero__image-wrap--left">
+        <img class="hero__image hero__image--man" src="assets/images/AdobeStock_1549920779.png" alt=""
+          aria-hidden="true">
+      </div>
+
+      <!-- 右：人物画像（絶対配置） -->
+      <div class="hero__image-wrap hero__image-wrap--right">
+        <img class="hero__image hero__image--woman" src="assets/images/women.png" alt="" aria-hidden="true">
+      </div>
+
+      <!-- テキストコンテンツ -->
+      <div class="hero__body container">
+        <div class="hero__caption-wrap">
+          <p class="hero__caption">成長フェーズのスタートアップ<br class="sp-br">・ベンチャー企業様へ</p>
+          <svg class="hero__caption-line" aria-hidden="true" focusable="false">
+            <polyline class="hero__caption-polyline" fill="none" stroke="#F1F5F9" stroke-width="1.5"
+              stroke-linejoin="miter" stroke-linecap="square" />
+            <line class="hero__caption-rline" stroke="#F1F5F9" stroke-width="1.5" stroke-linecap="square" />
+          </svg>
+        </div>
+        <h1 class="hero__heading">
+          管理部門にも事業成長同様の
+          <strong>スピード感を。</strong>
+        </h1>
+        <p class="hero__highlight"><span>「フレキシブルキャリア人材」の<br class="sp-br">活用により、基盤強化を効率的に</span></p>
+        <p class="hero__description">
+          「良い人がいない」と、管理業務を後回しにしていませんか？<br>
+          成長企業ほど、必要な時に必要な人材を柔軟に活用しています。
+        </p>
+        <div class="hero__cta-group">
+          <div class="hero__cta-buttons">
+            <div class="hero__cta-primary-wrap">
+              <span class="badge badge--free">完全無料</span>
+              <a href="#contact" class="btn btn--primary btn--lg">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true"
+                  style="transform: scaleX(-1)">
+                  <path
+                  d="M13 0.188C5.924 0.188 0.187 5.252 0.187 11.5C0.187 14.677 1.675 17.539 4.063 19.594C3.542 22.603 0.176 23.828 0.406 24.656C3.416 25.901 9.377 23.011 10.281 22.563C11.155 22.729 12.07 22.813 13 22.813C20.076 22.813 25.813 17.748 25.813 11.5C25.813 5.252 20.075 0.188 13 0.188Z"
+                  fill="currentColor" />
+                </svg>
+                まずは相談する
+                <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+            <a href="#contact" class="btn btn--outline-cta btn--lg">
+              <img src="assets/images/dl-icon.png" width="20" height="20" alt="" aria-hidden="true">
+              ハイスキル人材リストを受け取る
+              <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         Problem — 課題
+    ======================================================== -->
+    <section class="problem" id="problem" aria-label="課題">
+      <div class="problem__body">
+        <div class="container">
+          <header class="section__header" data-animate>
+            <span class="section-label">Problem</span>
+            <h2 class="section-title section-title--center">
+              事業は成長している<br>
+              一方でコーポレート機能の強化は後回しになっていませんか？
+            </h2>
+          </header>
+
+          <div class="problem__grid" data-animate>
+            <article class="problem__card">
+              <div class="problem__card-img">
+                <img src="assets/images/figma-problem-01.png" alt="" loading="lazy" width="400" height="260">
+              </div>
+              <h3 class="problem__card-title">経営者が管理業務を兼任</h3>
+              <p class="problem__card-text">経営者やコアメンバーが管理業務を抱え、本来注力すべき業務に時間を割けていない状態。</p>
+            </article>
+
+            <article class="problem__card">
+              <div class="problem__card-img">
+                <img src="assets/images/figma-problem-02.png" alt="" loading="lazy" width="400" height="260">
+              </div>
+              <h3 class="problem__card-title">属人化・ミス・手戻りの増加</h3>
+              <p class="problem__card-text">業務が個人依存となり、確認漏れや対応遅延が発生。組織負荷が高まりやすい状態。</p>
+            </article>
+
+            <article class="problem__card">
+              <div class="problem__card-img">
+                <img src="assets/images/figma-problem-03.png" alt="" loading="lazy" width="400" height="260">
+              </div>
+              <h3 class="problem__card-title">スピード感の欠如</h3>
+              <p class="problem__card-text">事業スピードに対して管理体制の整備が追いつかず、意思決定や対応速度に影響。</p>
+            </article>
+          </div>
+
+          <div class="problem__statement" data-animate>
+            <p class="problem__statement-title">これらは現場の忙しさではなく、<strong>経営課題</strong>です。</p>
+            <p class="problem__statement-sub">スピード低下・リスク増大・組織負債として、<br>事業成長の足枷になっています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Solution — 解決策
+    ======================================================== -->
+    <section class="section section--gray solution" id="solution" aria-label="解決策">
+      <div class="container">
+        <header class="section__header" data-animate>
+          <span class="section-label">Solutions</span>
+          <h2 class="section-title section-title--center">
+            そのお悩み、ひとつハッシュタグをつける<br>
+            「#フレキシブル」にするだけで解決します
+          </h2>
+          <p class="section-lead" style="text-align:center">
+            フルタイムにこだわらなければ、市場には優秀な人材が溢れています。<br>
+            フレキシブルキャリア独自のデータベースから、スキルと意欲の高い人材をご紹介します。
+          </p>
+        </header>
+
+        <div class="solution__layout" data-animate>
+          <div class="solution__image">
+            <img src="assets/images/figma-solution.png" alt="" loading="lazy" width="540" height="420">
+          </div>
+          <div class="solution__body">
+            <p class="solution__sub-label">パラダイムシフト</p>
+            <div class="solution__shift">
+              <p>「いい人がいない」のではなく</p>
+              <p>「条件が合っていないだけ」</p>
+            </div>
+            <p class="solution__text">フルタイムにとらわれないことで、これまで出会えなかった優秀な人材と繋がることができます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Features — 3つの強み + Expert
+    ======================================================== -->
+    <section class="features" id="strengths" aria-label="3つの強み">
+      <div class="features__top">
+        <div class="container">
+          <header class="section__header" data-animate>
+            <span class="section-label">Strength</span>
+            <h2 class="section-title section-title--center">フレキシブルキャリア人材の3つの強み</h2>
+          </header>
+
+          <div class="features__grid">
+            <article class="features__card" data-animate>
+              <div class="features__card-img-wrap">
+                <div class="features__card-img">
+                  <img src="assets/images/figma-strength-01.png" alt="" loading="lazy" width="400" height="240">
+                </div>
+                <span class="features__num">01</span>
+              </div>
+              <h3 class="features__card-title">即戦力・自走する人材</h3>
+              <p class="features__card-lead">他社で大きな戦力としてはたらいていたスキルを持つ経験者</p>
+              <ul class="features__list">
+                <li class="features__list-item">育成は不要で、早期から業務をお任せできる</li>
+                <li class="features__list-item">1人で複数役割をカバー（PMO×実務）</li>
+                <li class="features__list-item">業務整理・優先順位付け・改善提案まで推進</li>
+              </ul>
+            </article>
+
+            <article class="features__card" data-animate style="--delay: 0.1s">
+              <div class="features__card-img-wrap">
+                <div class="features__card-img">
+                  <img src="assets/images/figma-strength-02.png" alt="" loading="lazy" width="400" height="240">
+                </div>
+                <span class="features__num">02</span>
+              </div>
+              <h3 class="features__card-title">コストパフォーマンスの高さ</h3>
+              <p class="features__card-lead">必要な時間だけの就業なので、フルタイム採用よりもトータルコストを抑制</p>
+              <ul class="features__list">
+                <li class="features__list-item">固定費を変動費化できる柔軟性</li>
+                <li class="features__list-item">短時間でも成果にコミット</li>
+                <li class="features__list-item">意思決定を軽くし、手戻りを減らす</li>
+              </ul>
+            </article>
+
+            <article class="features__card" data-animate style="--delay: 0.2s">
+              <div class="features__card-img-wrap">
+                <div class="features__card-img">
+                  <img src="assets/images/figma-strength-03.png" alt="" loading="lazy" width="400" height="240">
+                </div>
+                <span class="features__num">03</span>
+              </div>
+              <h3 class="features__card-title">安定した定着率</h3>
+              <p class="features__card-lead">「はたらくこと」に意欲的な層のため、貢献意欲が高い</p>
+              <ul class="features__list">
+                <li class="features__list-item">当事者意識を持って働く</li>
+                <li class="features__list-item">戦力性の高い人材が業務生産性を向上</li>
+                <li class="features__list-item">スピード感のある環境で自分の貢献を実感</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Expert — 人材プロファイル
+    ======================================================== -->
+    <section class="expert" id="expert" aria-label="人材プロファイル">
+      <div class="container">
+        <header class="section__header" data-animate>
+          <span class="section-label">Expert</span>
+          <h2 class="section-title section-title--center">
+            「#フレキシブル」というハッシュタグをつけることで<br>
+            ハイスキル人材と御社でも巡り会えます
+          </h2>
+        </header>
+
+        <div class="expert__grid">
+          <article class="expert__card" data-animate>
+            <div class="expert__card-img">
+              <img src="assets/images/figma-expert-01.png" alt="" loading="lazy" width="400" height="280">
+            </div>
+            <h3 class="expert__name">経理スペシャリスト</h3>
+            <span class="expert__badge">10年の実務経験</span>
+            <p class="expert__text">IT企業で経理業務を10年間経験。月次・四半期・年次決算のすべてに精通し、上場企業レベルの厳格な会計処理が可能です。</p>
+            <div class="expert__tags">
+              <span class="expert__tag">年次決算</span>
+              <span class="expert__tag">月次決済</span>
+            </div>
+          </article>
+
+          <article class="expert__card" data-animate style="--delay: 0.1s">
+            <div class="expert__card-img">
+              <img src="assets/images/figma-expert-02.png" alt="" loading="lazy" width="400" height="280">
+            </div>
+            <h3 class="expert__name">人事労務エキスパート</h3>
+            <span class="expert__badge">10年の実務経験・社労士資格保有</span>
+            <p class="expert__text">サービス業で人事労務を10年経験（社労士資格保有）。給与計算、社会保険手続き、就業規則整備など、労務全般を網羅的にサポートできます。</p>
+            <div class="expert__tags">
+              <span class="expert__tag">社労士資格</span>
+              <span class="expert__tag">給与計算</span>
+              <span class="expert__tag">就業規則</span>
+            </div>
+          </article>
+
+          <article class="expert__card" data-animate style="--delay: 0.2s">
+            <div class="expert__card-img">
+              <img src="assets/images/figma-expert-03.png" alt="" loading="lazy" width="400" height="280">
+            </div>
+            <h3 class="expert__name">法務IR企画エキスパート</h3>
+            <span class="expert__badge">8年の法務業務経験</span>
+            <p class="expert__text">業界トップシェアの人材企業で法務業務を8年経験。契約書の作成・審査を中心に、法務業務全般のサポートが可能です。</p>
+            <div class="expert__tags">
+              <span class="expert__tag">契約書作成</span>
+              <span class="expert__tag">審査業務</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Reason — なぜ優秀な人材と巡り合えるのか
+    ======================================================== -->
+    <section class="section section--gray reason" aria-label="なぜ優秀な人材と巡り合えるのか">
+      <div class="container">
+        <header class="section__header" data-animate>
+          <span class="section-label">Reason</span>
+          <h2 class="section-title section-title--center">なぜ優秀な人材と巡り合えるのか？</h2>
+        </header>
+
+        <div class="reason__layout" data-animate>
+          <div class="reason__image">
+            <img src="assets/images/figma-reason.png" alt="" loading="lazy" width="540" height="380">
+          </div>
+          <div class="reason__body">
+            <h3 class="reason__sub-title">構造的な理由があります</h3>
+            <p class="reason__text">ご家庭事情などで就業の制約がある人材は多い一方で、<mark
+                class="reason__mark">時短勤務やリモート勤務などの環境整備が追いついておらず、</mark>十分に力を発揮できていないケースも多いです。</p>
+            <p class="reason__text">そうした人材は、<mark
+                class="reason__mark">はたらきたい意欲と高いスキルを持ちながら、その力を活かしきれていないのが現状です。</mark>当社には、人材業界で長年企業と人材を結びつけてきた実績から、こうした優秀層が多数登録しています。
+            </p>
+          </div>
+        </div>
+
+        <p class="reason__statement" data-animate>
+          こうした就業意欲の高い<br>
+          スキルのある優秀層を活用できるのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Results — 成功事例
+    ======================================================== -->
+    <section class="results" id="results" aria-label="成功事例">
+      <div class="results__inner">
+        <div class="container">
+          <header class="section__header" data-animate>
+            <span class="section-label">Result</span>
+            <h2 class="section-title section-title--center">成功体験から見る具体的な成果</h2>
+          </header>
+
+          <div class="results__grid">
+            <article class="results__card" data-animate>
+              <span class="results__badge">事例A</span>
+              <h3 class="results__title">IPO準備期の経理を<br>週3日で立て直し</h3>
+              <div class="results__flow">
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--before">Before</span>
+                  <p class="results__phase-text">月次締めの遅延が常態化し、経営判断に必要な数字が見えない状態</p>
+                </div>
+                <span class="results__arrow" aria-hidden="true">↓</span>
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--after">After</span>
+                  <p class="results__phase-text">月次締めを10営業日短縮、監査対応の型化（チェックリスト／証憑管理）を実現</p>
+                </div>
+              </div>
+              <p class="results__outcome">
+                <img src="assets/images/check.svg" alt="" width="16" height="16" aria-hidden="true">
+                週3日就業でIPO準備を着実に推進
+              </p>
+            </article>
+
+            <article class="results__card" data-animate style="--delay: 0.1s">
+              <span class="results__badge">事例B</span>
+              <h3 class="results__title">法務（英文契約・レビュー）<br>を週2日で回す体制へ</h3>
+              <div class="results__flow">
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--before">Before</span>
+                  <p class="results__phase-text">契約レビューが滞留し、ビジネス機会を逃すリスクが増大</p>
+                </div>
+                <span class="results__arrow" aria-hidden="true">↓</span>
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--after">After</span>
+                  <p class="results__phase-text">契約のリードタイム短縮、リスク論点の標準化を実現</p>
+                </div>
+              </div>
+              <p class="results__outcome">
+                <img src="assets/images/check.svg" alt="" width="16" height="16" aria-hidden="true">
+                週2日就業で法務体制を確立
+              </p>
+            </article>
+
+            <article class="results__card" data-animate style="--delay: 0.2s">
+              <span class="results__badge">事例C</span>
+              <h3 class="results__title">BizOps/採用職種で<br>"優先順位と会議"を再設計</h3>
+              <div class="results__flow">
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--before">Before</span>
+                  <p class="results__phase-text">プロジェクトが停滞し、意思決定が渋滞する組織状態</p>
+                </div>
+                <span class="results__arrow" aria-hidden="true">↓</span>
+                <div class="results__phase">
+                  <span class="results__phase-label results__phase-label--after">After</span>
+                  <p class="results__phase-text">意思決定の渋滞解消、プロジェクトの停滞を解消し、スピード感ある推進体制に</p>
+                </div>
+              </div>
+              <p class="results__outcome">
+                <img src="assets/images/check.svg" alt="" width="16" height="16" aria-hidden="true">
+                組織全体の生産性が向上
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Voice — 導入事例
+    ======================================================== -->
+    <section class="section section--gray voice" id="voice" aria-label="導入事例">
+      <div class="container">
+        <header class="section__header" data-animate>
+          <span class="section-label">Voice</span>
+          <h2 class="section-title section-title--center">「半信半疑でしたが、もっと早く頼めばよかった」</h2>
+        </header>
+
+        <div class="voice__grid">
+          <article class="voice__card" data-animate>
+            <div class="voice__head">
+              <span class="material-icons voice__avatar" aria-hidden="true">person</span>
+              <div class="voice__meta">
+                <p class="voice__company">IT系スタートアップ　CEO</p>
+                <p class="voice__role">経理（年次決算経験者・週4日）</p>
+              </div>
+            </div>
+            <p class="voice__text">
+              正社員が採れず、私自身が経理業務を兼任していました。フレキシブルキャリア人材の活用は不安でしたが、実際に来ていただいた方は大手企業で決算まで担当されていた方で、<strong>業務整理から改善提案まで自発的に動いてくれました。</strong>週4日でも十分な成果で、私の残業も大幅に削減されました。
+            </p>
+            <div class="voice__ba">
+              <div class="voice__ba-col">
+                <span class="voice__ba-label voice__ba-label--before">Before</span>
+                <p>経営者自身が経理業務を兼任、残業過多の状態</p>
+              </div>
+              <span class="voice__ba-arrow" aria-hidden="true">→</span>
+              <div class="voice__ba-col">
+                <span class="voice__ba-label voice__ba-label--after">After</span>
+                <p>業務整理され、社員の残業も削減、経営に専念できる環境に</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="voice__card" data-animate style="--delay: 0.1s">
+            <div class="voice__head">
+              <span class="material-icons voice__avatar" aria-hidden="true">person</span>
+              <div class="voice__meta">
+                <p class="voice__company">Web系ベンチャー　人事部長</p>
+                <p class="voice__role">労務（社労士資格保有・週3日）</p>
+              </div>
+            </div>
+            <p class="voice__text">
+              急速な組織拡大で労務業務が追いつかず、就業規則も曖昧な状態でした。社労士資格を持つ方に週3日入っていただき、<strong>制度設計から運用まで一気に整備</strong>できました。スピード感を持って動いてくれるので、事業部門と同じテンポで改善が進んでいます。
+            </p>
+            <div class="voice__ba">
+              <div class="voice__ba-col">
+                <span class="voice__ba-label voice__ba-label--before">Before</span>
+                <p>労務業務が追いつかず、制度が曖昧な状態</p>
+              </div>
+              <span class="voice__ba-arrow" aria-hidden="true">→</span>
+              <div class="voice__ba-col">
+                <span class="voice__ba-label voice__ba-label--after">After</span>
+                <p>制度設計から運用まで整備、事業と同じスピードで改善</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         Contact — CTA
+    ======================================================== -->
+    <section class="contact" id="contact" aria-label="お問い合わせ">
+      <div class="container">
+        <h2 class="contact__heading" data-animate>まずは現状について<br class="sp-br">ご相談しませんか？</h2>
+        <p class="contact__sub" data-animate>御社の管理部門の課題を整理し、最適な人材活用プランをご提案します。<br>お気軽にお問い合わせください。</p>
+        <div class="contact__cta" data-animate>
+          <div class="contact__buttons">
+            <div class="hero__cta-primary-wrap">
+              <span class="badge badge--free">完全無料</span>
+              <a href="#" class="btn btn--primary btn--lg">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true"
+                  style="transform: scaleX(-1)">
+                  <path
+                  d="M13 0.188C5.924 0.188 0.187 5.252 0.187 11.5C0.187 14.677 1.675 17.539 4.063 19.594C3.542 22.603 0.176 23.828 0.406 24.656C3.416 25.901 9.377 23.011 10.281 22.563C11.155 22.729 12.07 22.813 13 22.813C20.076 22.813 25.813 17.748 25.813 11.5C25.813 5.252 20.075 0.188 13 0.188Z"
+                  fill="currentColor" />
+                </svg>
+                まずは相談する
+                <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+            <a href="#" class="btn btn--outline-cta btn--lg">
+              <img src="assets/images/dl-icon.png" width="20" height="20" alt="" aria-hidden="true">
+              ハイスキル人材リストを受け取る
+              <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       Footer
+  ======================================================== -->
+  <footer class="footer" aria-label="フッター">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="FlexibleCAREER トップへ">
+          <img src="assets/images/透明_ロゴ.png" alt="FlexibleCAREER" width="160" height="32" loading="lazy">
+        </a>
+        <p class="footer__tagline">スタートアップの成長を支える<br>ハイスキル人材サービス</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <div class="footer__nav-col">
+          <p class="footer__nav-heading">サービス</p>
+          <ul class="footer__nav-list">
+            <li><a href="#problem" class="footer__nav-link">課題</a></li>
+            <li><a href="#solution" class="footer__nav-link">解決策</a></li>
+            <li><a href="#strengths" class="footer__nav-link">強み</a></li>
+            <li><a href="#voice" class="footer__nav-link">導入事例</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-heading">お問い合わせ</p>
+          <ul class="footer__nav-list">
+            <li><a href="#contact" class="footer__nav-link">無料診断</a></li>
+            <li><a href="#contact" class="footer__nav-link">資料ダウンロード</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__copy">
+      <p>© 2026 Goofy Staff. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       Floating CTA
+  ======================================================== -->
+  <div class="floating-cta" id="js-floating-cta" aria-label="お問い合わせ（追従）">
+
+    <!-- PC版 -->
+    <div class="floating-cta__inner floating-cta__inner--pc">
+      <div class="floating-cta__buttons">
+        <div class="hero__cta-primary-wrap">
+          <span class="badge badge--free">完全無料</span>
+          <a href="#contact" class="btn btn--primary btn--lg floating-cta__btn">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true" style="transform: scaleX(-1)">
+              <path
+              d="M13 0.188C5.924 0.188 0.187 5.252 0.187 11.5C0.187 14.677 1.675 17.539 4.063 19.594C3.542 22.603 0.176 23.828 0.406 24.656C3.416 25.901 9.377 23.011 10.281 22.563C11.155 22.729 12.07 22.813 13 22.813C20.076 22.813 25.813 17.748 25.813 11.5C25.813 5.252 20.075 0.188 13 0.188Z"
+              fill="currentColor" />
+            </svg>
+            まずは相談する
+            <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+        <a href="#contact" class="btn btn--outline-cta btn--lg floating-cta__btn">
+          <img src="assets/images/dl-icon.png" width="20" height="20" alt="" aria-hidden="true">
+          ハイスキル人材リストを受け取る
+          <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- SP版 -->
+    <div class="floating-cta__inner floating-cta__inner--sp">
+      <div class="floating-cta__sp-buttons">
+        <div class="floating-cta__sp-primary-wrap">
+          <span class="badge badge--free">完全無料</span>
+          <a href="#contact" class="btn btn--primary floating-cta__sp-btn">
+            相談
+            <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+        <a href="#contact" class="btn btn--outline-cta floating-cta__sp-btn">
+          人材リスト
+          <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+/* ============================================================
+   sections/results.css
+============================================================ */
+
+.results {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.results__inner {
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+.results .section-title {
+  color: var(--color-text-on-dark);
+}
+
+/* --- 3カラムグリッド --- */
+.results__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 46px;
+}
+
+/* --- カード --- */
+.results__card {
+  background-color: transparent;
+  border: 1px solid var(--color-text-on-dark);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.results__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  width: 80px;
+  height: 24px;
+  border-radius: 0;
+  align-self: flex-start;
+}
+
+.results__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-wide);
+  margin-top: -12px; /* gap(20px) - 8px = card gap を 8px に詰める */
+}
+
+/* --- Before/After フロー --- */
+.results__flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.results__phase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.results__phase-label {
+  display: inline-block;
+  width: 70px;
+  padding: 0 14px 2px 14px;
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  align-self: flex-start;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.results__phase-label--before {
+  border: 1px solid rgba(241, 245, 249, 0.4);
+  color: var(--color-text-on-dark);
+}
+
+.results__phase-label--after {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-on-dark);
+  border: 1px solid rgba(241, 245, 249, 0.4);
+}
+
+.results__phase-text {
+  font-size: var(--fs-sm);
+  color: var(--color-bg-light);
+  line-height: var(--lh-loose);
+}
+
+.results__arrow {
+  display: block;
+  text-align: center;
+  font-size: var(--fs-xl);
+  color: var(--color-bg-light);
+  line-height: 1;
+}
+
+/* --- アウトカム --- */
+.results__outcome {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-on-dark);
+  line-height: 1.8;
+}
+
+.results__outcome img {
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .results__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .results__card {
+    padding: var(--sp-5);
+    border-color: var(--color-text-on-dark);
+    gap: var(--sp-8);
+  }
+
+  .results__badge {
+    width: 80px;
+    height: 24px;
+  }
+
+  .results__title {
+    font-size: var(--fs-lg);
+    margin-top: -24px; /* gap(32px) - 8px = badge→title を 8px に詰める */
+  }
+
+  .results__phase-label {
+    width: 70px;
+    height: 22px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .results__phase-label--before {
+    border-color: var(--color-text-on-dark);
+  }
+
+  .results__phase-label--after {
+    background-color: var(--color-text-on-dark);
+    color: #334155;
+    border: none;
+  }
+
+  .results__phase-text {
+    font-size: var(--fs-base);
+  }
+
+  .results__outcome {
+    font-size: 17px;
+    gap: var(--sp-2);
+  }
+}

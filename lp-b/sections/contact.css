@@ -1,0 +1,112 @@
+/* ============================================================
+   sections/contact.css
+============================================================ */
+
+.contact {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  padding-block: var(--section-py);
+  text-align: left;
+}
+
+/* --- 見出し（オレンジ縦ストライプ付き） --- */
+.contact__heading {
+  font-size: clamp(var(--fs-2xl), 4vw, 3.5rem);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: var(--sp-6);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.contact__heading::before {
+  content: '';
+  display: block;
+  width: 49px;
+  height: 74px;
+  background: url('../assets/images/slash.svg') no-repeat center / contain;
+  flex-shrink: 0;
+}
+
+.contact__sub {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-text-on-dark);
+  line-height: 1.4;
+  margin-bottom: var(--sp-10);
+  text-align: center;
+}
+
+/* --- CTA グループ --- */
+.contact__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.contact__buttons {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* contact 内の outline-cta は白背景＋オレンジ文字 */
+.contact .btn--outline-cta {
+  background-color: var(--color-white);
+}
+
+/* ボタン幅・高さをヒーローと統一 */
+.contact__buttons .btn {
+  width: 410px;
+  height: 64px;
+  min-height: unset;
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .contact__heading {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .contact__heading::before {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 30px;
+    margin-right: 2px;
+  }
+
+  .contact__sub {
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .contact__cta {
+    align-items: stretch;
+  }
+
+  .contact__buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .contact__buttons .btn {
+    width: 100%;
+    height: 48px;
+    min-height: unset;
+  }
+}

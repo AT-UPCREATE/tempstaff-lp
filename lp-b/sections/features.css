@@ -1,0 +1,256 @@
+/* ============================================================
+   sections/features.css
+   強み（01/02/03 カード）＋ Expert プロファイル
+============================================================ */
+
+.features {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.features__top {
+  padding-block: var(--section-py);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.features .section-title {
+  color: var(--color-text-on-dark);
+}
+
+/* --- 3カラムグリッド --- */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-16);
+}
+
+.features__card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 画像＋数字のオーバーレイコンテナ */
+.features__card-img-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.features__card-img {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-dark);
+}
+
+.features__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 数字：画像底部にオーバーレイ */
+.features__num {
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--color-accent);
+  line-height: normal;
+}
+
+.features__card-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.features__card-lead {
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--sp-4);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.features__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 0;
+}
+
+.features__list-item {
+  font-size: var(--fs-base);
+  color: var(--color-bg-light);
+  line-height: var(--lh-base);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.features__list-item::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/images/check.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   Expert プロファイル
+============================================================ */
+.expert {
+  padding-block: var(--section-py);
+  background-color: #0B1F3A;
+  color: var(--color-text-on-dark);
+}
+
+.expert .section-title {
+  color: var(--color-text-on-dark);
+}
+
+.expert__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+.expert__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.expert__card-img {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-4);
+  background-color: var(--color-bg-dark);
+}
+
+.expert__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.expert__name {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--sp-2);
+  text-align: center;
+}
+
+.expert__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  height: 24px;
+  padding: 0 var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.expert__text {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-text-on-dark);
+  line-height: 1.8;
+  margin-bottom: var(--sp-4);
+  flex: 1;
+}
+
+.expert__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.expert__tag {
+  display: inline-block;
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid #F1F5F9;
+  border-radius: 100px;
+  font-size: var(--fs-base);
+  color: var(--color-text-on-dark);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .expert__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+
+  .features__card-img-wrap {
+    margin-bottom: 24px;
+  }
+
+  .features__card-img {
+    aspect-ratio: auto;
+    height: 205px;
+  }
+
+  .features__card-title {
+    text-align: center;
+    font-size: var(--fs-lg);
+  }
+
+  .features__card-lead {
+    text-align: left;
+    font-size: var(--fs-md);
+  }
+
+  .expert__card-img {
+    height: 240px;
+  }
+
+  .expert__name {
+    text-align: center;
+    font-size: var(--fs-xl);
+  }
+
+  .expert__badge {
+    height: 24px;
+  }
+
+  .expert__text {
+    font-size: var(--fs-base);
+  }
+
+  .expert__tags {
+    gap: var(--sp-3);
+  }
+
+  .expert__tag {
+    font-size: var(--fs-base);
+    border-color: var(--color-text-on-dark);
+    padding: 1px var(--sp-3) 3px;
+  }
+}

@@ -1,0 +1,223 @@
+/* ============================================================
+   sections/separators.css
+   セクション区切り（clip-path + margin）
+   ※ PCのみ適用。SPは矩形セクションで表示。
+============================================================ */
+
+/* --- 重なり順（上が前面）--- */
+.hero     { position: relative; z-index: 10; }
+.problem  { position: relative; z-index:  9; }
+.solution { position: relative; z-index:  8; }
+.features { position: relative; z-index:  7; }
+.expert   { position: relative; z-index:  6; }
+.reason   { position: relative; z-index:  5; }
+.results  { position: relative; z-index:  4; }
+.voice    { position: relative; z-index:  3; }
+.contact  { position: relative; z-index:  2; }
+.footer   { position: relative; z-index:  1; }
+
+/* ============================================================
+   SP（〜767px）のセクション区切り
+   形状：右上がり 20px（左端が基準、右端が20px高い）≒ 3.1°
+   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)
+============================================================ */
+@media (max-width: 767px) {
+
+  /* Problem: body の bottom padding をリセット（separator で管理）*/
+  .problem__body {
+    padding-bottom: 0;
+  }
+
+  /*
+   * SP 区切り共通ルール
+   * padding-bottom（前セクション）= padding-top（後セクション）= 50px
+   * → 対角線中央が上下余白の中間に来る（対角線中央 = 50-10 = 40px、合計 80px の中点）
+   */
+
+  /* Problem → Solution */
+  .problem {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Solution → Features */
+  .solution {
+    margin-top: -20px;
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Features → Expert */
+  .features {
+    background-color: var(--color-bg-dark);
+    margin-top: -20px;
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Expert → Reason */
+  .expert {
+    margin-top: -20px;
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Reason → Results */
+  .reason {
+    margin-top: -20px;
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Results → Voice
+     ※ .results__inner が padding-top を持つため、section 側には付与しない */
+  .results {
+    margin-top: -20px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+  .results__inner {
+    padding-top: 50px;
+  }
+
+  /* Voice → Contact */
+  .voice {
+    margin-top: -20px;
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding-bottom: 50px;
+  }
+
+  /* Contact: Voice の下に潜り込む（対角線の対称を保つため padding-top も 50px）*/
+  .contact {
+    margin-top: -20px;
+    padding-top: 50px;
+  }
+}
+
+/* ============================================================
+   PC（768px以上）のみ区切り形状を適用
+============================================================ */
+@media (min-width: 768px) {
+
+  /* ----------------------------------------------------------
+     Problem（課題）: 下部に逆三角形シェブロン
+     path: 0 0 → 100% 0 → 100% calc(100%-140px) → 50% 100% → 0 calc(100%-140px)
+  ---------------------------------------------------------- */
+  .problem {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 140px),
+      50% 100%,
+      0 calc(100% - 140px)
+    );
+    padding-bottom: 140px;
+  }
+
+  /* ----------------------------------------------------------
+     Solution（解決策）: 上部フラット、下部は右が80px高い斜め
+     path: 0 0 → 100% 0 → 100% calc(100%-80px) → 0 100%
+  ---------------------------------------------------------- */
+  .solution {
+    margin-top: -140px;
+    padding-top: calc(var(--section-py) + 140px);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 80px),
+      0 100%
+    );
+    padding-bottom: calc(var(--section-py) + 80px);
+  }
+
+  /* ----------------------------------------------------------
+     Strengths（強み）: 平行四辺形（上下とも斜め）+ スレートグレー背景
+     path: 0 80px → 100% 0 → 100% calc(100%-80px) → 0 100%
+  ---------------------------------------------------------- */
+  .features {
+    background-color: var(--color-bg-dark);
+    margin-top: -80px;
+    padding-top: calc(var(--section-py) + 80px);
+    clip-path: polygon(
+      0 80px,
+      100% 0,
+      100% calc(100% - 80px),
+      0 100%
+    );
+    padding-bottom: calc(var(--section-py) + 80px);
+  }
+
+  /* ----------------------------------------------------------
+     Reason（理由）: 平行四辺形（上下とも斜め）
+  ---------------------------------------------------------- */
+  .reason {
+    margin-top: -80px;
+    padding-top: calc(var(--section-py) + 80px);
+    clip-path: polygon(
+      0 80px,
+      100% 0,
+      100% calc(100% - 80px),
+      0 100%
+    );
+    padding-bottom: calc(var(--section-py) + 80px);
+  }
+
+  /* ----------------------------------------------------------
+     Results（導入事例）: 平行四辺形 + スレートグレー背景
+  ---------------------------------------------------------- */
+  .results {
+    background-color: var(--color-bg-dark);
+    margin-top: -80px;
+    padding-top: 80px;
+    clip-path: polygon(
+      0 80px,
+      100% 0,
+      100% calc(100% - 80px),
+      0 100%
+    );
+    padding-bottom: calc(var(--section-py) + 80px);
+  }
+
+  /* ----------------------------------------------------------
+     Expert（人材例）: 平行四辺形（上下とも斜め）
+  ---------------------------------------------------------- */
+  .expert {
+    margin-top: -80px;
+    padding-top: calc(var(--section-py) + 80px);
+    clip-path: polygon(
+      0 80px,
+      100% 0,
+      100% calc(100% - 80px),
+      0 100%
+    );
+    padding-bottom: calc(var(--section-py) + 80px);
+  }
+
+  /* ----------------------------------------------------------
+     Voice（お客様の声）: 上部のみ斜め、下部フラット
+     path: 0 80px → 100% 0 → 100% 100% → 0 100%
+  ---------------------------------------------------------- */
+  .voice {
+    margin-top: -80px;
+    padding-top: calc(var(--section-py) + 80px);
+    clip-path: polygon(
+      0 80px,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+  }
+
+  /* ----------------------------------------------------------
+     Contact（CTA）: 矩形のまま
+  ---------------------------------------------------------- */
+  .contact {
+    margin-top: 0;
+  }
+
+}

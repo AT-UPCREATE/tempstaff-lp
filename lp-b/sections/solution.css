@@ -1,0 +1,105 @@
+/* ============================================================
+   sections/solution.css
+============================================================ */
+
+.solution .section-label {
+  /* section-label はデフォルトで orange、light bg でも同じ */
+}
+
+.solution .section-lead {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* --- 2カラム: 画像左 + テキスト右 --- */
+.solution__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--sp-16);
+  margin-top: var(--sp-12);
+}
+
+.solution__image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+}
+
+.solution__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* --- テキストエリア --- */
+.solution__sub-label {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-3);
+  letter-spacing: var(--ls-wide);
+}
+
+.solution__shift {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.solution__shift p {
+  display: inline-block;
+  background-color: var(--color-highlight);
+  color: var(--color-primary);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  padding: 0 var(--sp-4);
+  height: 30px;
+  line-height: 30px;
+  align-self: flex-start;
+}
+
+.solution__text {
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  line-height: var(--lh-loose);
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .solution__layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .solution__image img {
+    aspect-ratio: auto;
+    height: 223px;
+  }
+
+  .solution__sub-label {
+    font-size: var(--fs-lg);
+  }
+
+  .solution__body {
+    text-align: center;
+  }
+
+  .solution__shift {
+    align-items: center;
+  }
+
+  .solution__shift p {
+    font-size: var(--fs-base);
+    align-self: auto;
+  }
+
+  .solution__text {
+    font-size: var(--fs-base);
+  }
+}

@@ -1,0 +1,153 @@
+/* ============================================================
+   sections/voice.css
+============================================================ */
+
+/* --- 2カラムグリッド --- */
+.voice__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 86px;
+}
+
+/* --- カード --- */
+.voice__card {
+  background-color: transparent;
+  border: 1px solid #333;
+  padding: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* --- ヘッダー（アバター＋メタ） --- */
+.voice__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.voice__avatar {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.voice__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.voice__company {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+
+.voice__role {
+  font-size: var(--fs-xs);
+  color: var(--color-text);
+}
+
+/* --- 本文 --- */
+.voice__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  line-height: var(--lh-loose);
+  flex: 1;
+}
+
+.voice__text strong {
+  color: var(--color-primary);
+}
+
+/* --- Before/After --- */
+.voice__ba {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-top: var(--sp-5);
+}
+
+.voice__ba-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.voice__ba-col p {
+  font-size: var(--fs-xs);
+  color: var(--color-text);
+  line-height: var(--lh-base);
+}
+
+.voice__ba-label {
+  display: inline-block;
+  padding: 2px var(--sp-3);
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  align-self: flex-start;
+}
+
+.voice__ba-label--before {
+  border: 1px solid rgba(11, 31, 58, 0.3);
+  color: var(--color-text);
+}
+
+.voice__ba-label--after {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.voice__ba-arrow {
+  font-size: var(--fs-lg);
+  color: var(--color-primary);
+  font-weight: var(--fw-bold);
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .voice__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .voice__card {
+    padding: var(--sp-5);
+    gap: var(--sp-6);
+  }
+
+  .voice__avatar {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .voice__role {
+    font-size: var(--fs-base);
+  }
+
+  .voice__text {
+    font-size: var(--fs-base);
+  }
+
+  .voice__ba {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2);
+  }
+
+  .voice__ba-arrow {
+    text-align: center;
+  }
+
+  .voice__ba-label--before {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}

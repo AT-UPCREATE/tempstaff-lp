@@ -1,0 +1,124 @@
+/* ============================================================
+   components/button.css
+
+   バリアント一覧:
+     .btn--primary      オレンジ bg / 白テキスト
+     .btn--outline-dark ダーク枠 + ダークテキスト  ← ヘッダーで使用
+     .btn--outline-cta  オレンジ枠 + オレンジテキスト ← CTAセクションで使用
+     .btn--outline-white 白枠 + 白テキスト          ← ダーク背景で使用
+
+   サイズ修飾子:
+     .btn--sm  小（ヘッダー内など）
+     .btn--lg  大（ヒーロー・CTAセクション）
+============================================================ */
+
+/* ボタン内アイコン */
+.btn__arrow {
+  flex-shrink: 0;
+}
+
+/* --- ベース --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-8);
+  font-family: var(--font-ja);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-base);
+  line-height: 1;
+  border-radius: var(--radius-base);
+  border: 1px solid transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition-fast);
+}
+
+/* --- バリアント --- */
+.btn--primary {
+  background-color: var(--color-cta);
+  color: var(--color-white);
+  border-color: var(--color-cta);
+}
+
+/* ヘッダー用: ダーク枠 */
+.btn--outline-dark {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* CTAセクション用: オレンジ枠 */
+.btn--outline-cta {
+  background-color: transparent;
+  color: var(--color-cta);
+  border-color: var(--color-cta);
+}
+
+/* ダーク背景用: 白枠 */
+.btn--outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* --- サイズ --- */
+.btn--sm {
+  padding: var(--sp-2) var(--sp-5);
+  font-size: var(--fs-sm);
+}
+
+.btn--lg {
+  padding: var(--sp-5) var(--sp-10);
+  min-height: 64px;
+  font-size: var(--fs-lg);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================================
+   PC: hover（translateY + 右下shadow）
+   ※ ナビ・フッターには使わない。CTAボタン専用。
+============================================================ */
+@media (min-width: 768px) {
+  .btn--primary:hover,
+  .btn--outline-dark:hover,
+  .btn--outline-cta:hover,
+  .btn--outline-white:hover {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0 var(--color-shadow-cta);
+  }
+}
+
+/* ============================================================
+   SP: tap（わずかな沈み込み + opacity）
+   ※ box-shadow は付けない。
+============================================================ */
+@media (max-width: 767px) {
+  .btn {
+    width: 100%;
+    font-size: var(--fs-base);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .btn--sm,
+  .btn--lg {
+    font-size: var(--fs-base);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+    opacity: 0.9;
+    box-shadow: none;
+  }
+
+  /* SP では hover 効果をリセット */
+  .btn--primary:hover,
+  .btn--outline-dark:hover,
+  .btn--outline-cta:hover,
+  .btn--outline-white:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

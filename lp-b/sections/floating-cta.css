@@ -1,0 +1,114 @@
+/* ============================================================
+   sections/floating-cta.css
+   追従CTA（FV 通過後に表示、contact セクション付近で非表示）
+============================================================ */
+
+.floating-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-float);
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.floating-cta.is-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-cta.is-hidden {
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   PC版
+============================================================ */
+.floating-cta__inner--pc {
+  height: 127px;
+  background: linear-gradient(to bottom, rgba(11, 31, 58, 0) 0%, #0B1F3A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.floating-cta__inner--sp {
+  display: none;
+}
+
+.floating-cta__buttons {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.floating-cta__btn {
+  width: 410px;
+  height: 64px;
+  min-height: unset;
+}
+
+/* PC: アウトラインボタンは白塗り＋オレンジ文字 */
+.floating-cta__inner--pc .btn--outline-cta {
+  background-color: var(--color-white);
+  color: var(--color-cta);
+  border-color: var(--color-cta);
+}
+
+/* ============================================================
+   SP版
+============================================================ */
+@media (max-width: 767px) {
+  .floating-cta__inner--pc {
+    display: none;
+  }
+
+  .floating-cta__inner--sp {
+    display: flex;
+    justify-content: center;
+    background-color: #0B1F3A4D;
+    padding: 12px 20px 16px;
+    align-items: flex-end;
+  }
+
+  .floating-cta__sp-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+  }
+
+  /* 完全無料バッジ + プライマリボタン */
+  .floating-cta__sp-primary-wrap {
+    position: relative;
+    padding-top: 25px;
+    flex-shrink: 0;
+  }
+
+  .floating-cta__sp-primary-wrap .badge--free {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    font-size: 15px;
+  }
+
+  /* SP ボタン共通 */
+  .floating-cta__sp-btn {
+    width: 160px;
+    height: 40px;
+    min-height: unset;
+    font-size: var(--fs-base);
+    border-radius: 4px;
+    padding-inline: var(--sp-4);
+    white-space: nowrap;
+    gap: var(--sp-1);
+  }
+
+  /* SP: アウトラインは白背景＋オレンジ枠（デフォルト） */
+  .floating-cta__inner--sp .btn--outline-cta {
+    background-color: var(--color-white);
+  }
+}

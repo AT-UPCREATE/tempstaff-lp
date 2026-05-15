@@ -1,0 +1,33 @@
+:root {
+  /* ============================================================
+     タイポグラフィトークン — パーソルテンプスタッフLP
+     ルール: 必ず --ds-* 変数を使うこと。font値の直接記述は禁止。
+  ============================================================ */
+
+  /* === フォントファミリー === */
+  --ds-font-ja: 'Zen Kaku Gothic New', sans-serif;
+  /* 用途: 日本語テキストすべてに使用。欧文・数字には使わないこと */
+
+  --ds-font-en: 'Plus Jakarta Sans', sans-serif;
+  /* 用途: 欧文テキスト・数字のみ使用可 */
+
+  /* === フォントウェイト === */
+  --ds-font-weight-regular: 400;
+  /* 用途: 本文・説明文など通常テキスト */
+
+  --ds-font-weight-medium: 500;
+  /* 用途: やや強調したいテキスト */
+
+  --ds-font-weight-bold: 700;
+  /* 用途: 見出し・強調テキスト */
+
+  --ds-font-weight-extrabold: 800;
+  /* 用途: 欧文（Plus Jakarta Sans）の特別強調のみ使用可。通常は --ds-font-weight-bold を使うこと */
+
+  /* === フォントスタイル === */
+  --ds-font-style-normal: normal;
+  /* 用途: 通常スタイル */
+
+  --ds-font-style-italic: italic;
+  /* 用途: 欧文 ExtraBold（--ds-font-weight-extrabold）と組み合わせる場合のみ使用可 */
+}
