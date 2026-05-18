@@ -65,7 +65,7 @@
   --sp-24: 96px;
 
   /* --- Section Padding --- */
-  --section-py: 120px;
+  --section-py: clamp(80px, 10vw, 120px);
 
   /* --- Layout --- */
   --container-max:  1200px;
@@ -113,6 +113,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img,
@@ -202,7 +203,14 @@ button {
 body { color: var(--_text, var(--color-text)); }
 
 /* --------------------------------------------------------
-   6. Scroll Animation
+   6. Anchor Scroll Offset（固定ヘッダー分を相殺）
+-------------------------------------------------------- */
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* --------------------------------------------------------
+   7. Scroll Animation
 -------------------------------------------------------- */
 [data-animate] {
   opacity: 0;

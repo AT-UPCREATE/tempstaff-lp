@@ -98,6 +98,14 @@
 
   .footer__nav {
     gap: var(--sp-10);
+    flex-wrap: wrap;
+  }
+
+  /* ポリシーカラムは下段に独立 */
+  .footer__nav-col:last-child {
+    width: 100%;
+    padding-top: var(--sp-6);
+    border-top: 1px solid rgba(51, 51, 51, 0.15);
   }
 
   .footer__nav-heading {

@@ -4156,6 +4156,7 @@ body.is-menu-open {
     justify-content: center;
     align-items: flex-start;
     text-align: left;
+    padding-bottom: 0;
   }
 
   .talent-reason-kicker {
@@ -5088,6 +5089,7 @@ body.is-menu-open {
     display: block;
     margin-top: calc(100vw * 31 / 375);
     padding-bottom: calc(100vw * 32 / 375);
+    padding-right: 0;
   }
 
   .service-flow-overview-track {
