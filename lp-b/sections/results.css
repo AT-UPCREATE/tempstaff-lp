@@ -87,8 +87,8 @@
 }
 
 .results__phase-label--after {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+  background-color: #F1F5F9;
+  color: #334155;
   border: none;
 }
 
@@ -179,7 +179,7 @@
   }
 
   .results__phase-label--after {
-    background-color: var(--color-text-on-dark);
+    background-color: #F1F5F9;
     color: #334155;
     border: none;
   }
