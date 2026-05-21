@@ -27,6 +27,7 @@
   /* --- Font Weight --- */
   --fw-regular:   400;
   --fw-medium:    500;
+  --fw-semibold:  600;
   --fw-bold:      700;
   --fw-extrabold: 800;
 
@@ -68,7 +69,7 @@
   --section-py: clamp(80px, 10vw, 120px);
 
   /* --- Layout --- */
-  --container-max:  1200px;
+  --container-max:  1240px; /* コンテンツ幅（padding は含まない） */
   --container-px:   40px;
   --header-h:       80px;
 
@@ -145,7 +146,7 @@ button {
 -------------------------------------------------------- */
 .container {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: calc(var(--container-max) + var(--container-px) * 2);
   margin-inline: auto;
   padding-inline: var(--container-px);
 }
@@ -278,6 +279,7 @@ section[id] {
 
 .section-title--center {
   text-align: center;
+  color: var(--color-primary); /* #0B1F3A */
 }
 
 .section-lead {
@@ -325,8 +327,21 @@ section[id] {
   }
 
   .section-title {
-    font-size: var(--fs-lg);
+    /* 320〜400px で 15→18px に可変。デザインにない改行を抑制 */
+    font-size: clamp(15px, 4.5vw, 18px);
     letter-spacing: -0.05em;
+  }
+}
+
+/* Tablet（768px〜1024px）全体的な改行問題・余白縮小 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section__header {
+    margin-bottom: var(--sp-12);
+  }
+
+  .section-title {
+    font-size: var(--fs-xl); /* 32px→24px: タブレット幅での改行問題解消 */
+    letter-spacing: 0; /* 幅に収まるよう字間を詰める */
   }
 }
 
@@ -334,4 +349,23 @@ section[id] {
 .sp-br { display: none; }
 @media (max-width: 767px) {
   .sp-br { display: block; }
+}
+
+/* Tablet 以下（≤768px）で表示する改行 */
+.tab-br { display: none; }
+@media (max-width: 768px) {
+  .tab-br { display: block; }
+}
+
+/* ============================================================
+   SP: カード内の <p> テキスト line-height を 150% に統一
+============================================================ */
+@media (max-width: 767px) {
+  .problem__card p,
+  .features__card p,
+  .expert__card p,
+  .results__card p,
+  .voice__card p {
+    line-height: 1.5;
+  }
 }

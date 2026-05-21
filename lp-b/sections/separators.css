@@ -17,85 +17,106 @@
 .footer   { position: relative; z-index:  1; }
 
 /* ============================================================
-   SP（〜767px）のセクション区切り
-   形状：右上がり 20px（左端が基準、右端が20px高い）≒ 3.1°
-   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)
+   SP（〜767px）: PC と同じ斜めレイアウトを全セクションに適用
+   高低差は SP 用に縮小（chevron 40px / 平行四辺形 20px ≒ 3.1°）
+   区切り箇所の padding は 40px に縮小（コンパクト化）
 ============================================================ */
 @media (max-width: 767px) {
-
-  /* Problem: body の bottom padding をリセット（separator で管理）*/
-  .problem__body {
-    padding-bottom: 0;
-  }
-
-  /*
-   * SP 区切り共通ルール
-   * padding-bottom（前セクション）= padding-top（後セクション）= 50px
-   * → 対角線中央が上下余白の中間に来る（対角線中央 = 50-10 = 40px、合計 80px の中点）
-   */
-
-  /* Problem → Solution */
+  /* Problem: 下部に下向き矢印（chevron 40px） */
   .problem {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 40px),
+      50% 100%,
+      0 calc(100% - 40px)
+    );
+    padding-bottom: 40px;
   }
 
-  /* Solution → Features */
+  /* Solution: 上フラット、下部斜め（右が20px上がる） */
   .solution {
-    margin-top: -20px;
-    padding-top: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    margin-top: -40px;
+    padding-top: 40px;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 20px),
+      0 100%
+    );
+    padding-bottom: 40px;
   }
 
-  /* Features → Expert */
+  /* Features: 平行四辺形 + スレートグレー背景 */
   .features {
     background-color: var(--color-bg-dark);
     margin-top: -20px;
-    padding-top: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    padding-top: 40px;
+    clip-path: polygon(
+      0 20px,
+      100% 0,
+      100% calc(100% - 20px),
+      0 100%
+    );
+    padding-bottom: 40px;
   }
 
-  /* Expert → Reason */
+  /* Expert: 平行四辺形 */
   .expert {
     margin-top: -20px;
-    padding-top: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    padding-top: 40px;
+    clip-path: polygon(
+      0 20px,
+      100% 0,
+      100% calc(100% - 20px),
+      0 100%
+    );
+    padding-bottom: 40px;
   }
 
-  /* Reason → Results */
+  /* Reason: 平行四辺形 */
   .reason {
     margin-top: -20px;
-    padding-top: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    padding-top: 40px;
+    clip-path: polygon(
+      0 20px,
+      100% 0,
+      100% calc(100% - 20px),
+      0 100%
+    );
+    padding-bottom: 40px;
   }
 
-  /* Results → Voice
-     ※ .results__inner が padding-top を持つため、section 側には付与しない */
+  /* Results: 平行四辺形 + スレートグレー背景 */
   .results {
+    background-color: var(--color-bg-dark);
     margin-top: -20px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
-  }
-  .results__inner {
-    padding-top: 50px;
+    padding-top: 40px;
+    clip-path: polygon(
+      0 20px,
+      100% 0,
+      100% calc(100% - 20px),
+      0 100%
+    );
+    padding-bottom: 40px;
   }
 
-  /* Voice → Contact */
+  /* Voice: 上部のみ斜め、下部フラット */
   .voice {
     margin-top: -20px;
-    padding-top: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 48px; /* Contact との境界余白縮小 */
+    clip-path: polygon(
+      0 20px,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
   }
 
-  /* Contact: Voice の下に潜り込む（対角線の対称を保つため padding-top も 50px）*/
+  /* Contact: Voice からの境界余白縮小 */
   .contact {
-    margin-top: -20px;
-    padding-top: 50px;
+    padding-top: 48px;
   }
 }
 

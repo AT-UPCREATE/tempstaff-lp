@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "lp-preview",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3900"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3900", "/Users/rina.n/Desktop/業務委託/塚原さん関連/パーソルテンプLP/paesol-tempstaff-lp"],
       "port": 3900
     }
   ]

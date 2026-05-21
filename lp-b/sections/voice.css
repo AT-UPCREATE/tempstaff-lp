@@ -48,13 +48,14 @@
 }
 
 .voice__role {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
+  /* PC base: 14px */
   color: var(--color-text);
 }
 
 /* --- 本文 --- */
 .voice__text {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text);
   line-height: var(--lh-loose);
   flex: 1;
@@ -80,7 +81,8 @@
 }
 
 .voice__ba-col p {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-base);
+  /* PC base: 16px */
   color: var(--color-text);
   line-height: var(--lh-base);
 }
@@ -111,16 +113,32 @@
 }
 
 /* ============================================================
+   Tablet（768px〜1024px）→ SP同様の1カラムレイアウトに調整
+============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .voice__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .voice__card {
+    background-color: var(--color-white);
+  }
+}
+
+/* ============================================================
    SP
 ============================================================ */
 @media (max-width: 767px) {
   .voice__grid {
     grid-template-columns: 1fr;
+    gap: var(--sp-8);
+    /* 86px→32px に縮小 */
   }
 
   .voice__card {
     padding: var(--sp-5);
-    gap: var(--sp-6);
+    gap: var(--sp-5);
   }
 
   .voice__avatar {
@@ -129,21 +147,40 @@
     height: 48px;
   }
 
+  .voice__company {
+    font-size: 20px;
+    color: var(--color-text); /* #333 */
+  }
+
   .voice__role {
-    font-size: var(--fs-base);
+    font-size: clamp(12px, 3.5vw, 14px);
   }
 
   .voice__text {
-    font-size: var(--fs-base);
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+  .voice__ba-col p {
+    line-height: 1.5; /* SP: カード内 p 統一 150% */
   }
 
   .voice__ba {
     grid-template-columns: 1fr;
     gap: var(--sp-2);
+    padding-top: 0; /* SP: 上パディング削除 */
   }
 
+  /* 1カラムで縦並びになるため矢印を↓に切り替え */
   .voice__ba-arrow {
+    font-size: 0;
     text-align: center;
+  }
+
+  .voice__ba-arrow::after {
+    content: '↓';
+    font-size: var(--fs-lg);
+    color: var(--color-primary);
+    font-weight: var(--fw-bold);
   }
 
   .voice__ba-label--before {

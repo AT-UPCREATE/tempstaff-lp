@@ -11,7 +11,13 @@
 .problem__body {
   padding-block: var(--section-py);
   padding-top: 18px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 767px) {
+  .problem__body {
+    padding-bottom: 48px;
+  }
 }
 
 /* セクションタイトル色オーバーライド */
@@ -50,7 +56,7 @@
 
 .problem__card-title {
   font-size: var(--fs-xl);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-bold);
   margin-bottom: var(--sp-3);
   text-align: center;
 }
@@ -64,14 +70,14 @@
 /* --- ボトムステートメント --- */
 .problem__statement {
   text-align: center;
-  padding-top: var(--sp-10);
+  padding-top: 0;
 }
 
 .problem__statement-title {
   font-size: var(--fs-2xl);
   font-weight: var(--fw-medium);
   margin-bottom: var(--sp-4);
-  letter-spacing: var(--ls-wide);
+
 }
 
 .problem__statement-title strong {
@@ -85,9 +91,9 @@
 }
 
 /* ============================================================
-   SP
+   Tablet（768px〜1024px）→ SP同様の1カラムレイアウトに調整
 ============================================================ */
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .problem__grid {
     grid-template-columns: 1fr;
     gap: 56px;
@@ -98,20 +104,50 @@
   }
 
   .problem__card-title {
-    text-align: center;
     font-size: var(--fs-lg);
+  }
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .problem__grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+
+  .problem__card-title {
+    text-align: center;
+    font-size: clamp(16px, 5vw, 20px);
   }
 
   .problem__card-text {
-    font-size: var(--fs-base);
+    font-size: clamp(13px, 4vw, 16px);
     text-align: justify;
   }
 
   .problem__statement-title {
-    font-size: var(--fs-lg);
+    font-size: clamp(16px, 5vw, 20px);
   }
 
   .problem__statement-sub {
-    font-size: var(--fs-base);
+    font-size: clamp(13px, 4vw, 16px);
+  }
+}
+
+/* ============================================================
+   カード画像高さ専用: ≤768=280px / ≤375=220px
+============================================================ */
+@media (max-width: 768px) {
+  .problem__card-img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 375px) {
+  .problem__card-img {
+    height: 220px;
   }
 }

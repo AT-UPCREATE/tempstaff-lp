@@ -7,15 +7,16 @@
 }
 
 .solution .section-lead {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  line-height: 1.5; /* 150% */
 }
 
 /* --- 2カラム: 画像左 + テキスト右 --- */
 .solution__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: start; /* テキストトップを画像トップに揃える */
   gap: var(--sp-16);
   margin-top: var(--sp-12);
 }
@@ -69,9 +70,9 @@
 }
 
 /* ============================================================
-   SP
+   Tablet（768px〜1024px）→ SP同様の1カラムレイアウトに調整
 ============================================================ */
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .solution__layout {
     grid-template-columns: 1fr;
     gap: var(--sp-8);
@@ -79,11 +80,12 @@
 
   .solution__image img {
     aspect-ratio: auto;
-    height: 223px;
+    height: 280px;
   }
 
+  /* SP同様: テキストコンテンツ中央配置 */
   .solution__sub-label {
-    font-size: var(--fs-lg);
+    text-align: center;
   }
 
   .solution__body {
@@ -95,11 +97,63 @@
   }
 
   .solution__shift p {
+    align-self: center;  /* pill 自体を中央配置 */
+    text-align: left;    /* pill 内テキストは左揃え */
+  }
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  .solution .section-lead {
+    font-size: var(--fs-base); /* SP: solution override (20px) を16pxに戻す */
+  }
+
+  .solution__layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+    margin-top: var(--sp-6); /* 余白縮小: sp-12(48px) → sp-6(24px) */
+  }
+
+  .solution__sub-label {
+    font-size: var(--fs-lg);
+    text-align: center; /* SP: 中央揃え */
+  }
+
+  .solution__body {
+    text-align: center; /* SP: テキストコンテンツ中央配置 */
+  }
+
+  .solution__shift {
+    align-items: center; /* SP: pill を中央配置 */
+  }
+
+  .solution__shift p {
     font-size: var(--fs-base);
-    align-self: auto;
+    align-self: center; /* SP: pill 自体を中央配置 */
+    text-align: left;   /* pill 内のテキストは左揃え */
   }
 
   .solution__text {
     font-size: var(--fs-base);
+    text-align: center; /* SP: 中央揃え */
+  }
+}
+
+/* ============================================================
+   画像高さ専用: ≤768=280px / ≤375=220px
+============================================================ */
+@media (max-width: 768px) {
+  .solution__image img {
+    aspect-ratio: auto;
+    height: 280px;
+  }
+}
+
+@media (max-width: 375px) {
+  .solution__image img {
+    aspect-ratio: auto;
+    height: 220px;
   }
 }

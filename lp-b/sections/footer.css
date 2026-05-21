@@ -24,12 +24,12 @@
 
 .footer__logo img {
   display: block;
-  width: 160px;
+  width: 260px;
   height: auto;
 }
 
 .footer__tagline {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text);
   line-height: var(--lh-loose);
 }
@@ -47,7 +47,7 @@
 }
 
 .footer__nav-heading {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-weight: var(--fw-bold);
   color: var(--color-primary);
 }
@@ -59,7 +59,7 @@
 }
 
 .footer__nav-link {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text);
   transition: opacity var(--transition);
 }

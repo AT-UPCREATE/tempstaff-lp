@@ -6,7 +6,7 @@
   background-color: var(--color-primary);
   color: var(--color-text-on-dark);
   padding-block: var(--section-py);
-  text-align: left;
+  text-align: center;
 }
 
 /* --- 見出し（オレンジ縦ストライプ付き） --- */
@@ -19,21 +19,22 @@
   display: inline-flex;
   align-items: flex-start;
   gap: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .contact__heading::before {
   content: '';
   display: block;
-  width: 49px;
-  height: 74px;
+  width: auto;
+  height: 1.3em;
+  aspect-ratio: 49 / 74;
   background: url('../assets/images/slash.svg') no-repeat center / contain;
   flex-shrink: 0;
 }
 
 .contact__sub {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-text-on-dark);
   line-height: 1.4;
   margin-bottom: var(--sp-10);
@@ -63,35 +64,63 @@
 
 /* ボタン幅・高さをヒーローと統一 */
 .contact__buttons .btn {
-  width: 410px;
+  width: clamp(280px, calc(50vw - 60px), 410px);
   height: 64px;
   min-height: unset;
+}
+
+/* ============================================================
+   Tablet（768px〜1024px）
+============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact {
+    padding-block: var(--sp-16); /* 余白縮小 */
+  }
+
+  .contact__buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact__buttons .btn {
+    width: clamp(280px, 80vw, 480px);
+    height: 64px;
+  }
 }
 
 /* ============================================================
    SP
 ============================================================ */
 @media (max-width: 767px) {
+  .contact {
+    padding-bottom: var(--sp-10); /* 余白縮小: 64px→40px */
+  }
+
   .contact__heading {
     display: block;
-    font-size: 26px;
-    font-weight: 800;
+    font-size: clamp(18px, 6vw, 24px);
+    font-weight: var(--fw-bold);
+    color: var(--color-white); /* カンプに揃える */
     text-align: center;
     white-space: normal;
+    margin-bottom: var(--sp-5);
   }
 
   .contact__heading::before {
     display: inline-block;
     vertical-align: middle;
-    width: 20px;
-    height: 30px;
+    width: auto;
+    height: 1.15em;
+    aspect-ratio: 49 / 74;
     margin-right: 2px;
   }
 
   .contact__sub {
     font-size: var(--fs-base);
-    line-height: 1.5;
+    line-height: var(--lh-loose); /* 行高をカンプに揃える */
     text-align: center;
+    margin-bottom: var(--sp-8);
   }
 
   .contact__cta {

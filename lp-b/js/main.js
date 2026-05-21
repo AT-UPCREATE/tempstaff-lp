@@ -42,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ----------------------------------------------------------
+  // ロゴクリック → ページトップへスムーズスクロール
+  // ----------------------------------------------------------
+  document.querySelectorAll('.header__logo, .footer__logo').forEach(logo => {
+    logo.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ----------------------------------------------------------
   // ハンバーガーメニュー
   // ----------------------------------------------------------
   const hamburger = document.querySelector('[data-action="toggle-drawer"]');

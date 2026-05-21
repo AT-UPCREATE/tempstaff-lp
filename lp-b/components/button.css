@@ -89,6 +89,42 @@
     transform: translateY(2px);
     box-shadow: 2px 2px 0 var(--color-shadow-cta);
   }
+
+  /* バッジ付きラッパーはラッパーごと動かし、ボタン単体の transform を打ち消す */
+  .hero__cta-primary-wrap {
+    transition: transform var(--transition);
+  }
+
+  .hero__cta-primary-wrap:hover {
+    transform: translateY(2px);
+  }
+
+  .hero__cta-primary-wrap:hover .btn {
+    transform: none;
+    box-shadow: 2px 2px 0 var(--color-shadow-cta);
+  }
+}
+
+/* ============================================================
+   Tablet: btn--lg テキスト・アイコン縮小
+   長テキスト（ハイスキル人材リストを受け取る）の
+   はみ出し防止。410px ボタンに収まるよう調整。
+============================================================ */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .btn--lg {
+    font-size: var(--fs-base);
+    padding-inline: var(--sp-5);
+  }
+
+  .btn--lg img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn--lg svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* ============================================================
@@ -98,13 +134,29 @@
 @media (max-width: 767px) {
   .btn {
     width: 100%;
-    font-size: var(--fs-base);
+    /* 狭幅（〜320px）でもデザインの改行を維持: nowrap + フォントサイズ可変 */
+    white-space: nowrap;
+    font-size: clamp(13px, 4vw, 16px);
+    line-height: 1.2;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
   .btn--sm,
   .btn--lg {
-    font-size: var(--fs-base);
+    font-size: clamp(13px, 4vw, 16px);
+  }
+
+  /* btn--lg: padding とアイコンも縮小し 320px 幅で 1 行を維持 */
+  .btn--lg {
+    padding: var(--sp-3) clamp(8px, 3vw, 16px);
+    min-height: 48px;
+    height: auto;
+  }
+
+  .btn--lg img,
+  .btn--lg svg {
+    width: clamp(14px, 4.5vw, 18px);
+    height: clamp(14px, 4.5vw, 18px);
   }
 
   .btn:active {

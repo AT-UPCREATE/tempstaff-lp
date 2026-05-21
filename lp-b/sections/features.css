@@ -3,7 +3,16 @@
    強み（01/02/03 カード）＋ Expert プロファイル
 ============================================================ */
 
+/* Strength / Expert 共通: 幅・gap（画像高さのみセクション別） */
+.features,
+.expert {
+  --card-column-width: 360px;
+  --card-grid-gap-mobile: 56px;
+  --card-grid-gap-pc: var(--sp-16);
+}
+
 .features {
+  --card-img-height: 220px;
   background-color: var(--color-primary);
   color: var(--color-text-on-dark);
 }
@@ -21,24 +30,29 @@
 /* --- 3カラムグリッド --- */
 .features__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-16);
+  /* minmax(0, ...) で 1240px 以下でも overflow せず縮小 */
+  grid-template-columns: repeat(3, minmax(0, var(--card-column-width)));
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--card-grid-gap-pc);
 }
 
 .features__card {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 /* 画像＋数字のオーバーレイコンテナ */
 .features__card-img-wrap {
   position: relative;
+  flex-shrink: 0;
   margin-bottom: 28px;
 }
 
 .features__card-img {
   width: 100%;
-  aspect-ratio: 5 / 3;
+  height: var(--card-img-height);
   overflow: hidden;
   border-radius: var(--radius-md);
   background-color: var(--color-bg-dark);
@@ -56,35 +70,40 @@
   position: absolute;
   bottom: -17px;
   left: 0;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-en);
+  font-weight: var(--fw-semibold);
   font-style: italic;
-  font-size: 36px;
+  font-size: var(--fs-2xl);
   color: var(--color-accent);
   line-height: normal;
 }
 
 .features__card-title {
+  flex-shrink: 0;
   font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
-  margin-bottom: 12px;
+  margin-bottom: var(--sp-3);
   text-align: center;
 }
 
 .features__card-lead {
+  align-self: stretch;
+  flex: 1 1 auto;
   font-size: var(--fs-lg);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   color: var(--color-text-on-dark);
   margin-bottom: var(--sp-4);
   line-height: 1.4;
-  text-align: center;
+  text-align: left;
 }
 
 .features__list {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--sp-1);
   padding-left: 0;
+  margin-top: 0;
 }
 
 .features__list-item {
@@ -92,7 +111,7 @@
   color: var(--color-bg-light);
   line-height: var(--lh-base);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--sp-2);
 }
 
@@ -102,6 +121,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  margin-top: 5px; /* half-leading offset: テキスト1行目に光学的に揃える */
   background-image: url('../assets/images/check.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -111,9 +131,15 @@
    Expert プロファイル
 ============================================================ */
 .expert {
+  --card-img-height: 240px;
   padding-block: var(--section-py);
   background-color: #0B1F3A;
   color: var(--color-text-on-dark);
+}
+
+/* Expert section__header の余白を縮小 */
+.expert .section__header {
+  margin-bottom: var(--sp-12);
 }
 
 .expert .section-title {
@@ -122,8 +148,10 @@
 
 .expert__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-6);
+  /* minmax(0, ...) で 1240px 以下でも overflow せず縮小 */
+  grid-template-columns: repeat(3, minmax(0, var(--card-column-width)));
+  justify-content: center;
+  gap: var(--card-grid-gap-pc);
 }
 
 .expert__card {
@@ -133,7 +161,7 @@
 
 .expert__card-img {
   width: 100%;
-  height: 240px;
+  height: var(--card-img-height);
   overflow: hidden;
   border-radius: var(--radius-md);
   margin-bottom: var(--sp-4);
@@ -149,7 +177,7 @@
 
 .expert__name {
   font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-medium); /* PC/SP 共通: 500 */
   margin-bottom: var(--sp-2);
   text-align: center;
 }
@@ -158,19 +186,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin-inline: auto;
   background-color: var(--color-accent);
   color: var(--color-white);
   font-size: var(--fs-base);
-  font-weight: 400;
-  height: 24px;
-  padding: 0 var(--sp-3);
+  font-weight: var(--fw-regular);
+  min-height: 24px;
+  height: auto;
+  padding: 2px var(--sp-3) 3px; /* 上2px / 左右12px / 下3px — 上下1pxずつ縮小 */
   margin-bottom: var(--sp-4);
+  border-radius: var(--radius-sm); /* 2px */
+  text-align: center;
+  line-height: 1.4;
+  white-space: normal;
 }
 
 .expert__text {
   font-size: var(--fs-base);
-  font-weight: 400;
+  font-weight: var(--fw-regular);
   font-style: normal;
   color: var(--color-text-on-dark);
   line-height: 1.8;
@@ -195,49 +229,108 @@
 }
 
 /* ============================================================
-   SP
+   Tablet（768px〜1024px）→ SP同様の1カラムレイアウトに調整
 ============================================================ */
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .features__grid {
     grid-template-columns: 1fr;
-    gap: 56px;
+    justify-content: stretch;
+    gap: var(--card-grid-gap-mobile);
+  }
+
+  .features__card {
+    height: auto;
+    max-width: none; /* Tablet: コンテナ幅いっぱいに広げる（Reason と同じ挙動） */
+    width: 100%;
+  }
+
+  .features__card-lead {
+    flex: none;
+  }
+
+  .features__card-title {
+    font-size: var(--fs-lg);
+  }
+
+  .features__card-lead {
+    font-size: var(--fs-base);
   }
 
   .expert__grid {
     grid-template-columns: 1fr;
-    gap: var(--sp-12);
+    gap: var(--card-grid-gap-mobile);
+  }
+
+  .expert__card {
+    max-width: none; /* Tablet: コンテナ幅いっぱい */
+    width: 100%;
+  }
+
+  .expert__name {
+    font-size: var(--fs-xl);
+  }
+}
+
+/* ============================================================
+   SP
+============================================================ */
+@media (max-width: 767px) {
+  /* Expert section title: 44文字のlong titleをSPで2行に収める */
+  .expert .section-title {
+    font-size: var(--fs-base); /* 18px→16px: 44chars×15.2px≈335px → 2行 */
+  }
+  .expert .section-title br {
+    display: none; /* PC用<br>を非表示にして自然折り返しで2行に */
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    gap: var(--card-grid-gap-mobile);
+  }
+
+  .features__card {
+    height: auto;
+    max-width: none; /* SP: コンテナ幅いっぱい */
+    width: 100%;
+  }
+
+  .features__card-lead {
+    flex: none;
+  }
+
+  .expert__grid {
+    grid-template-columns: 1fr;
+    gap: var(--card-grid-gap-mobile);
+  }
+
+  .expert__card {
+    max-width: none; /* SP: コンテナ幅いっぱい */
+    width: 100%;
   }
 
   .features__card-img-wrap {
     margin-bottom: 24px;
   }
 
-  .features__card-img {
-    aspect-ratio: auto;
-    height: 205px;
-  }
-
   .features__card-title {
     text-align: center;
-    font-size: var(--fs-lg);
+    font-size: clamp(16px, 5vw, 20px);
   }
 
   .features__card-lead {
     text-align: left;
-    font-size: var(--fs-md);
-  }
-
-  .expert__card-img {
-    height: 240px;
+    font-size: clamp(14px, 4.5vw, 18px);
   }
 
   .expert__name {
     text-align: center;
-    font-size: var(--fs-xl);
+    font-size: 20px; /* SP: 固定 20px */
   }
 
   .expert__badge {
-    height: 24px;
+    height: auto;
+    align-items: center;
   }
 
   .expert__text {
@@ -252,5 +345,23 @@
     font-size: var(--fs-base);
     border-color: var(--color-text-on-dark);
     padding: 1px var(--sp-3) 3px;
+  }
+
+}
+
+/* ============================================================
+   カード画像高さ専用: ≤768=280px / ≤375=220px
+============================================================ */
+@media (max-width: 768px) {
+  .features,
+  .expert {
+    --card-img-height: 280px;
+  }
+}
+
+@media (max-width: 375px) {
+  .features,
+  .expert {
+    --card-img-height: 220px;
   }
 }

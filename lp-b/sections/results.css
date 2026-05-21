@@ -87,13 +87,13 @@
 }
 
 .results__phase-label--after {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: var(--color-text-on-dark);
-  border: 1px solid rgba(241, 245, 249, 0.4);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
 }
 
 .results__phase-text {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-bg-light);
   line-height: var(--lh-loose);
 }
@@ -109,7 +109,7 @@
 /* --- アウトカム --- */
 .results__outcome {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--sp-2);
   font-size: var(--fs-base);
   font-weight: var(--fw-bold);
@@ -119,12 +119,31 @@
 
 .results__outcome img {
   flex-shrink: 0;
+  margin-top: 6px; /* half-leading offset: テキスト1行目に光学的に揃える */
+}
+
+/* ============================================================
+   Tablet（768px〜1024px）→ SP同様の1カラムレイアウトに調整
+============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .results__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .results__title {
+    font-size: var(--fs-lg);
+  }
 }
 
 /* ============================================================
    SP
 ============================================================ */
 @media (max-width: 767px) {
+  .results__inner {
+    padding-top: 0; /* SP: 他セクションと同じ余白に揃える（PC用 80px を解除） */
+  }
+
   .results__grid {
     grid-template-columns: 1fr;
     gap: var(--sp-8);
@@ -142,7 +161,7 @@
   }
 
   .results__title {
-    font-size: var(--fs-lg);
+    font-size: clamp(16px, 5vw, 20px);
     margin-top: -24px; /* gap(32px) - 8px = badge→title を 8px に詰める */
   }
 
@@ -170,7 +189,7 @@
   }
 
   .results__outcome {
-    font-size: 17px;
+    font-size: var(--fs-base);
     gap: var(--sp-2);
   }
 }
