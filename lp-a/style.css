@@ -811,7 +811,6 @@ body.is-menu-open {
 }
 
 .problem-heading strong {
-  font-size: 40px;
   font-weight: 700;
 }
 
@@ -1074,7 +1073,7 @@ body.is-menu-open {
 .solution-heading-mark {
   display: block;
   position: relative;
-  width: 2.55%;
+  width: 1.56%;
   height: auto;
   margin: 0 auto;
   z-index: 2;
@@ -1192,6 +1191,7 @@ body.is-menu-open {
 
   .problem-heading strong {
     font-size: calc(var(--problem-sp-width) * 24 / 335);
+    margin-bottom: calc(var(--problem-sp-width) * 4 / 335);
   }
 
   .problem-heading-line {
@@ -1548,6 +1548,7 @@ body.is-menu-open {
 
   .problem-heading strong {
     font-size: clamp(32px, 2.78vw, 40px);
+    margin-bottom: clamp(5px, calc(0.8347vw - 2.02px), 10px);
   }
 
   .solution-heading h2 {
@@ -2350,7 +2351,7 @@ body.is-menu-open {
   margin: 16px 0 0;
   color: var(--text);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.64px;
   line-height: 1.5;
   text-align: center;
@@ -2647,7 +2648,7 @@ body.is-menu-open {
   justify-content: space-between;
   gap: 32px;
   margin-top: -2px;
-  padding: 56px 56px 52px;
+  padding: 56px 56px 41px;
   border: 1px solid var(--accent);
   border-radius: 16px;
   background: var(--white);
@@ -3287,7 +3288,6 @@ body.is-menu-open {
   }
 
   .case-intro-card {
-    width: min(760px, 100%);
     margin: 0 auto;
   }
 }
@@ -3304,6 +3304,7 @@ body.is-menu-open {
 
   .benefit-cards {
     gap: 14px;
+    grid-template-columns: 1fr;
   }
 
   .benefit-card {
@@ -3532,6 +3533,69 @@ body.is-menu-open {
   .case-intro-card-body {
     min-height: clamp(274px, 29vw, 307px);
     padding-bottom: clamp(14px, 1.8vw, 20px);
+  }
+
+  .case-intro-flow {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.4vw, 12px);
+  }
+
+  .case-intro-panel {
+    width: 100%;
+    height: auto;
+    padding: clamp(12px, 1.6vw, 16px) clamp(16px, 2.4vw, 20px);
+  }
+
+  .case-intro-panel-before {
+    min-height: 200px;
+  }
+
+  .case-intro-panel-after {
+    min-height: 0;
+  }
+
+  .case-intro-icon-before {
+    width: clamp(140px, 20vw, 174px);
+    height: clamp(82px, 11.6vw, 103px);
+  }
+
+  .case-intro-icon-after {
+    width: 100px;
+    height: 100px;
+  }
+
+  .case-intro-before-bg-pc,
+  .case-intro-before-illust-pc,
+  .case-intro-after-case01-pc,
+  .case-intro-after-bg-pc,
+  .case-intro-after-person-back-pc,
+  .case-intro-after-person-front-pc,
+  .case-intro-arrow-horizontal {
+    display: none;
+  }
+
+  .case-intro-before-sp,
+  .case-intro-before-bg-sp,
+  .case-intro-before-illust-sp,
+  .case-intro-after-case01-sp,
+  .case-intro-after-bg-sp,
+  .case-intro-after-person-back-sp,
+  .case-intro-after-person-front-sp,
+  .case-intro-arrow-vertical {
+    display: block;
+  }
+
+  .case-intro-arrow-vertical {
+    width: 53px;
+    height: 35px;
+    margin: 8px 0;
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+
+  .case-intro-desc {
+    text-align: center;
   }
 }
 
@@ -5205,6 +5269,81 @@ body.is-menu-open {
   }
 }
 
+@media (min-width: 541px) and (max-width: 1024px) {
+  .service-flow-item {
+    --sf-item-icon-size: clamp(72px, 8.5vw, 86px);
+    display: grid;
+    grid-template-columns: var(--sf-item-icon-size) 1fr;
+    column-gap: clamp(12px, 2vw, 18px);
+    row-gap: clamp(6px, 1vw, 10px);
+    padding: clamp(22px, 3.2vw, 30px) 0;
+    margin-left: 6%;
+  }
+
+  .service-flow-item-head {
+    display: contents;
+  }
+
+  .service-flow-item-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: var(--sf-item-icon-size);
+    height: var(--sf-item-icon-size);
+  }
+
+  .service-flow-item-icon-fg-step01 {
+    width: calc(var(--sf-item-icon-size) * 35 / 75);
+    height: calc(var(--sf-item-icon-size) * 48 / 75);
+  }
+
+  .service-flow-item-icon-fg-step02 {
+    width: calc(var(--sf-item-icon-size) * 45 / 75);
+    height: calc(var(--sf-item-icon-size) * 45 / 75);
+  }
+
+  .service-flow-item-icon-fg-step03 {
+    width: calc(var(--sf-item-icon-size) * 61 / 75);
+    height: calc(var(--sf-item-icon-size) * 46 / 75);
+  }
+
+  .service-flow-item-icon-fg-step04 {
+    width: calc(var(--sf-item-icon-size) * 57 / 75);
+    height: calc(var(--sf-item-icon-size) * 49 / 75);
+  }
+
+  .service-flow-line-img {
+    height: 1px;
+  }
+
+  .service-flow-step {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    font-size: clamp(18px, 2.2vw, 22px);
+    letter-spacing: clamp(0.7px, 0.1vw, 0.88px);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .service-flow-item > h3 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+    font-size: clamp(22px, 2.5vw, 24px);
+    letter-spacing: clamp(1px, 0.15vw, 1.6px);
+    line-height: 1.05;
+  }
+
+  .service-flow-item > p {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin: clamp(8px, 1.2vw, 12px) 0 0;
+    font-size: clamp(16px, 1.8vw, 18px);
+    letter-spacing: clamp(0.72px, 0.12vw, 1.1px);
+  }
+}
+
 .faq-section {
   background: #f8f8f8;
   padding: clamp(56px, calc(4vw + 22px), 80px) 0 clamp(56px, calc(3vw + 31px), 74px);
@@ -6223,8 +6362,14 @@ body.is-menu-open {
 }
 
 .site-footer-external {
-  font-size: 11px;
-  vertical-align: middle;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-left: 4px;
+  vertical-align: baseline;
+  background: url("./assets/figma-temp/site-footer-external.svg") center / contain no-repeat;
+  transform: translateY(1px);
+  flex-shrink: 0;
 }
 
 .site-footer-bottom {
