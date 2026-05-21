@@ -122,7 +122,7 @@
   }
 
   .voice__card {
-    background-color: var(--color-white);
+    background-color: transparent;
   }
 }
 
@@ -137,6 +137,7 @@
   }
 
   .voice__card {
+    background-color: transparent;
     padding: var(--sp-5);
     gap: var(--sp-5);
   }
